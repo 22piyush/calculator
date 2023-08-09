@@ -44,10 +44,9 @@
                 background-color: gray;
                 color: white;
             }
-            .cal-button:hover{
-                font-size: 45px;
+            .cal-button:hover
+            {
                 box-shadow: 0 0 1px 0.5px white;
-                transition: 1s;
                 border: 2px solid black;
             }
             .bg-tomato{
@@ -80,39 +79,64 @@
     </head>
     <body>
         <div class="calculator-container">
-            <p class="brand-name">PIYUSH AGLAWE</p>
-        <input type="text" class="calculator-screen"/>
+            <p class="brand-name">PIYUSH</p>
+        <input type="text" id="input" class="calculator-screen"/>
 
         <div class="button-row">
-            <button class="cal-button ext">AC</button>
-            <button class="cal-button bg-tomato">()</button>
-            <button class="cal-button bg-tomato">%</button>
-            <button class="cal-button bg-tomato">/</button>
+            <button class="cal-button ext" onclick="handkeypress('AC')">AC</button>
+            <button class="cal-button bg-tomato" onclick="handkeypress('()')">()</button>
+            <button class="cal-button bg-tomato" onclick="handkeypress('%')">%</button>
+            <button class="cal-button bg-tomato" onclick="handkeypress('/')">/</button>
         </div>
         <div class="button-row">
-            <button class="cal-button">7</button>
-            <button class="cal-button">8</button>
-            <button class="cal-button">9</button>
-            <button class="cal-button bg-tomato">x</button>
+            <button class="cal-button" onclick="handkeypress('7')">7</button>
+            <button class="cal-button" onclick="handkeypress('8')">8</button>
+            <button class="cal-button" onclick="handkeypress('9')">9</button>
+            <button class="cal-button bg-tomato" onclick="handkeypress('*')">x</button>
         </div>
         <div class="button-row">
-            <button class="cal-button">4</button>
-            <button class="cal-button">5</button>
-            <button class="cal-button">6</button>
-            <button class="cal-button bg-tomato">-</button>
+            <button class="cal-button" onclick="handkeypress('4')">4</button>
+            <button class="cal-button" onclick="handkeypress('5')">5</button>
+            <button class="cal-button" onclick="handkeypress('6')">6</button>
+            <button class="cal-button bg-tomato" onclick="handkeypress('-')">-</button>
         </div>
         <div class="button-row">
-            <button class="cal-button">1</button>
-            <button class="cal-button">2</button>
-            <button class="cal-button">3</button>
-            <button class="cal-button bg-tomato">+</button>
+            <button class="cal-button" onclick="handkeypress('1')">1</button>
+            <button class="cal-button" onclick="handkeypress('2')">2</button>
+            <button class="cal-button" onclick="handkeypress('3')">3</button>
+            <button class="cal-button bg-tomato" onclick="handkeypress('+')">+</button>
         </div>
         <div class="button-row">
-            <button class="cal-button">0</button>
-            <button class="cal-button">.</button>
-            <button class="cal-button text">back</button>
-            <button class="cal-button har">=</button>
+            <button class="cal-button" onclick="handkeypress('0')">0</button>
+            <button class="cal-button" onclick="handkeypress('.')">.</button>
+            <button class="cal-button text" onclick="handkeypress('back')">back</button>
+            <button class="cal-button har" onclick="handkeypress('=')">=</button>
         </div>
         </div>
+
+        <script>
+            function handkeypress(key)
+        {
+            const inputscreen = document.getElementById('input');
+            if(key=='=')
+             {
+                inputscreen.value = eval(inputscreen.value);  
+             }
+             else if(key=='AC')
+             {
+                inputscreen.value = '';
+             }
+             else if(key=='back')
+             {
+                inputscreen.value =-1;
+             }
+            else
+              {              
+                inputscreen.value += key;                
+              }
+              
+        }
+           
+        </script>
     </body>
 </html>
